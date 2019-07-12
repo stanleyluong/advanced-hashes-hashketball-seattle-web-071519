@@ -140,6 +140,100 @@ def num_points_scored(player)
 end   
 
 
+def num_points_scored(name)
+  hash = game_hash
+  hash.each do |location, info| 
+    info.each do |attribute, stuff| 
+      if stuff.include?(name) 
+       return hash[location][attribute][name][:points]
+      end
+    end
+  end
+end
+
+def team_names
+  hash = game_hash
+  array = []
+  hash.each do |location, attributes|
+    attributes.each do |attribute, info|
+      if attribute == :team_name
+        array << info
+      end
+    end
+  end
+  return array
+end
+
+def team_colors(team_name)
+  hash = game_hash
+  array = []
+  hash.each do |location, attributes|
+    if hash[location].values.include?(team_name)
+      attributes.each do |attribute, info|
+        if attribute == :colors
+          return info
+        end
+      end
+    end
+  end
+end
+
+def player_numbers(team_name)
+  hash = game_hash
+  array = []
+  hash.each do |location, attributes|
+    if hash[location].values.include?(team_name)
+      attributes.each do |attribute, info|
+        if info.class == Hash
+          info.each do |player, stats|
+            stats.each do |stat, int|
+              if stat == :number
+                array << int.to_i
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+  return array
+end
+
+
+
+def player_stats(name)
+  hash = game_hash
+  hash.each do |location, attributes| 
+    attributes.each do |attribute, info| 
+      if info.include?(name) 
+       return hash[location][attribute][name]
+      end
+    end
+  end
+end
+
+def big_shoe_rebounds
+  hash = game_hash
+  player_name = ""
+  shoe_size = 0
+  hash.each do |location, attributes|
+    attributes.each do |attribute, info|
+      if info.class == Hash
+        info.each do |player, stats|
+            stats.each do |stat, int|
+              if stat == :shoe
+                if int > shoe_size
+                  shoe_size = int
+                  player_name = player
+                end
+              end
+            end
+          end
+        return hash[location][attribute][player_name][:rebounds]
+      end
+    end
+  end
+end
 
  
 
