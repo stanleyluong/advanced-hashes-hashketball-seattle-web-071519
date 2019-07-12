@@ -259,18 +259,31 @@ end
 #       return hash[location][attribute][name][:points]
 
 
-def most_points_scored(game_hash)
-  hash = game_hash
-  max_player = nil
-  hash.each do |location, info|
-    info.each do |attribute, stuff|
-      max_player ||= stuff
-      max_player = stuff if stuff[:points] > max_player[:points]
+# def most_points_scored(game_hash)
+#   hash = game_hash
+#   max_player = nil
+#   hash.each do |location, info|
+#     info.each do |attribute, stuff|
+#       max_player ||= stuff
+#       max_player = stuff if stuff[:points] > max_player[:points]
+#     end
+#   end
+
+#   max_player[:name]
+# end
+
+def most_points_scored
+  most_points = 0
+  mvp = ''
+  game_hash.each do |home_away, keys|
+    keys[:players].each do |player|
+      points = player[:points]
+      if points > most_points
+        most_points = points
+        mvp = player[:name]
+      end
     end
   end
-
-  max_player[:name]
+  mvp
 end
-
-
 
