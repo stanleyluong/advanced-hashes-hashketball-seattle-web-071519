@@ -253,7 +253,7 @@ end
 #   max_player[:name]
 # end
 
-def most_points_scored(game)
+def most_points_scored(game_hash)
   max_player = nil
   game.each do |team, team_hash|
     team_hash[:players].each do |player, player_hash|
