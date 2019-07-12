@@ -241,17 +241,17 @@ def big_shoe_rebounds
   end
 end
 
-def most_points_scored(game)
-  max_player = nil
-  hash.each do |location, attributes|
-    attributes[:players].each do |attribute, info|
-      max_player ||= info
-      max_player = info if info[:stats][:points] > max_player[:stats][:points]
-    end
-  end
+# def most_points_scored(game)
+#   max_player = nil
+#   hash.each do |location, attributes|
+#     attributes[:players].each do |attribute, info|
+#       max_player ||= info
+#       max_player = info if info[:stats][:points] > max_player[:stats][:points]
+#     end
+#   end
 
-  max_player[:name]
-end
+#   max_player[:name]
+# end
 
 
 
