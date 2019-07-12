@@ -152,7 +152,7 @@ def shoe_size#(name)
     info.each do |attribute, stuff| 
       # if stuff.include?(name) 
        return hash[location][attribute][name][:shoe]
-      end
+      #end
     end
   end
 end
