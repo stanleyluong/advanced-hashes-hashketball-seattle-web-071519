@@ -215,7 +215,7 @@ end
 def big_shoe_rebounds
   hash = game_hash
   player_name = ""
-  shoe_size = 0
+  shoe = 0
   hash.each do |location, attributes|
     attributes.each do |attribute, info|
       if info.class == Hash
