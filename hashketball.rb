@@ -252,6 +252,12 @@ end
 
 #   max_player[:name]
 # end
+# hash = game_hash
+#   hash.each do |location, info| 
+#     info.each do |attribute, stuff| 
+#       if stuff.include?(name) 
+#       return hash[location][attribute][name][:points]
+
 
 def most_points_scored(game_hash)
   max_player = nil
