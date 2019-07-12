@@ -260,6 +260,7 @@ end
 
 
 def most_points_scored(game_hash)
+  hash = game_hash
   max_player = nil
   game_hash.each do |location, info|
     info.each do |attribute, stuff|
